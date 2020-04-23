@@ -85,7 +85,122 @@ docker image rm [选项] <镜像1> [<镜像2> ...]
 
 **容器**是**镜像**运行时的实体。
 
+### 常用命令
 
+#### docker run 
+
+创建一个新的容器并运行一个命令
+
+##### 语法
+
+```bash
+docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+```
+
+常用选项（options）：
+
+* **-d:** 后台运行容器，并返回容器ID；
+* **-i:** 以交互模式运行容器，通常与 -t 同时使用；
+* **-P:** 随机端口映射，容器内部端口**随机**映射到主机的高端口
+* **-p:** 指定端口映射，格式为：**主机(宿主)端口:容器端口**
+* **-t:** 为容器重新分配一个伪输入终端，通常与 -i 同时使用；
+* **--name=" ":** 为容器指定一个名称；
+* **--expose=[]:** 开放一个端口或一组端口；
+* **--volume , -v:** 绑定一个卷
+
+#### Docker start/stop/restart 
+
+**docker start** :启动一个或多个已经被停止的容器
+
+**docker stop** :停止一个运行中的容器
+
+**docker restart** :重启容器
+
+##### 语法
+
+```bash
+docker start [OPTIONS] CONTAINER [CONTAINER...]
+docker stop [OPTIONS] CONTAINER [CONTAINER...]
+docker restart [OPTIONS] CONTAINER [CONTAINER...]
+```
+
+#### Docker attach
+
+**docker attach :**连接到正在运行中的容器。
+
+##### 语法
+
+```bash
+docker attach [OPTIONS] CONTAINER
+```
+
+*注意：* 如果从这个 stdin 中 exit，会导致容器的停止。
+
+#### docker exec
+
+在运行的容器中执行命令
+
+##### 语法
+
+```bash
+docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
+```
+
+常用选项：
+
+- **-d :**分离模式: 在后台运行
+- **-i :**即使没有附加也保持STDIN 打开
+- **-t :**分配一个伪终端
+
+#### Docker export 
+
+将文件系统作为一个tar归档文件（快照）导出到STDOUT。
+
+##### 语法
+
+```bash
+docker export [OPTIONS] CONTAINER
+```
+
+选项说明：
+
+- **-o :**将输入内容写到文件。
+
+#### docker import 
+
+从归档文件中创建镜像。
+
+##### 语法
+
+```bash
+docker import [OPTIONS] file|URL|- [REPOSITORY[:TAG]]
+```
+
+OPTIONS说明：
+
+- **-c :**应用docker 指令创建镜像；
+- **-m :**提交时的说明文字；
+
+#### docker rm 
+
+删除一个或多个容器。
+
+##### 语法
+
+```bash
+docker rm [OPTIONS] CONTAINER [CONTAINER...]
+```
+
+OPTIONS说明：
+
+- **-f :**通过 SIGKILL 信号强制删除一个运行中的容器。
+- **-l :**移除容器间的网络连接，而非容器本身。
+- **-v :**删除与容器关联的卷。
+
+```bash
+# 清理所有处于终止状态的容器
+docker container prune
+```
 
 更多文档：
 
