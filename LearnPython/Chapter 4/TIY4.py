@@ -72,6 +72,7 @@ buffet_foods = ('VEGETABLE SAMOSA', 'KEEMA SAMOSA', 'VEGETABLE PAKORA',
     'PANEER PAKORA', 'CHUNKY CHICKEN')
 for buffet_food in buffet_foods:
     print(buffet_food)
+
 # buffet_foods[2] = "FISH PAKORA"
 buffet_foods = ('VEGETABLE SAMOSA', "FISH PAKORA", 'KEEMA SAMOSA', 
     'TOMATO SOUP' ,  'CHICKEN TANDOORI')
