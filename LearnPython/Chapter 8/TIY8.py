@@ -128,4 +128,9 @@ completed_models = []
 print_models(unprinted_designs[:], completed_models)
 show_completed_models(completed_models)
 
+# 8-16.Imports:
+import pizza
+from  pizza import make_pizza as mkpza
+from printing_functions import *
+
 
